@@ -175,7 +175,7 @@ export abstract class Gesture {
         for (gestureParameterName in evaluationParameters) {
           const gestureParameter = evaluationParameters[gestureParameterName];
 
-          const pointerInputValue = timedPointerInputValues[gestureParameterName];
+          const pointerInputValue = gestureParameterName.startsWith("absolute") ? Math.abs(timedPointerInputValues[gestureParameterName]) : timedPointerInputValues[gestureParameterName];
 
           if (this.DEBUG == true) {
             console.log(
